@@ -1,3 +1,14 @@
+document.getElementById('dob').addEventListener('input', function () {
+    const dob = this.value;
+
+    // Validate Date of Birth for age range (18 to 55 years)
+    if (!validateDOB(dob)) {
+        this.setCustomValidity('Date of Birth must be between 18 and 55 years old.');
+    } else {
+        this.setCustomValidity(''); // Clear the error if the date is valid
+    }
+});
+
 document.getElementById('registrationForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -8,11 +19,7 @@ document.getElementById('registrationForm').addEventListener('submit', function 
     const dob = document.getElementById('dob').value;
     const termsAccepted = document.getElementById('terms').checked;
 
-    // Validate Date of Birth for age range (18 to 55 years)
-    if (!validateDOB(dob)) {
-        alert('Date of Birth must be between 18 and 55 years old.');
-        return; // Stop form submission
-    }
+    // No need to validate DOB here, as it's already handled in the input event
 
     // Create an entry object
     const entry = {
