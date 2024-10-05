@@ -19,8 +19,6 @@ document.getElementById('registrationForm').addEventListener('submit', function 
     const dob = document.getElementById('dob').value;
     const termsAccepted = document.getElementById('terms').checked;
 
-    // No need to validate DOB here, as it's already handled in the input event
-
     // Create an entry object
     const entry = {
         name: name,
@@ -74,7 +72,7 @@ function displayEntries() {
             <td class="border px-4 py-2">${entry.email}</td>
             <td class="border px-4 py-2">${entry.password}</td>
             <td class="border px-4 py-2">${entry.dob}</td>
-            <td class="border px-4 py-2">${entry.termsAccepted ? 'Yes' : 'No'}</td>
+            <td class="border px-4 py-2">${entry.termsAccepted}</td>
         `;
 
         entriesTableBody.appendChild(row);
